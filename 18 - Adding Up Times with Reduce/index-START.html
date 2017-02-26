@@ -182,6 +182,13 @@
     </li>
   </ul>
 <script>
+  const timeStrings = Array.from(document.querySelectorAll("li")).map(li => li.dataset.time);
+  const times = timeStrings.map(timeString => {
+    let [minutes, seconds] = timeString.split(":")
+    return parseInt(minutes)*60 + parseInt(seconds);
+  });
+  console.log(times);
+  console.log("Total Time: ", times.reduce((total, vidSeconds) => total+vidSeconds, 0));
 </script>
 </body>
 </html>
